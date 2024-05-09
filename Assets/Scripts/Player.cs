@@ -86,13 +86,20 @@ public class Player : MonoBehaviour
                 }
                 else if(HitTileRef.getTilePolarity()==playerPolarity)
                 {
-                    //Add the tile attachment code here , Tap on tile to fix, Then change polarity to repel.
-                    if (!isRepelled)
+                    if (!HitTileRef.repelledTile)
                     {
                         randomRepelPoint = new(Random.Range(3f,6f), Random.Range(3f,6f), 0f);
                         Debug.Log("Random Location of Repel : "+randomRepelPoint);
                     }
-                    repelTile(grabbedTile, randomRepelPoint);
+                    HitTileRef.setIsRepelledByUserAfterGrab(true);
+                    //Add the tile attachment code here , Tap on tile to fix, Then change polarity to repel.
+                    
+                    if(HitTileRef.repelledTile)
+                    {
+                        HitTileRef.RepelTile(randomRepelPoint);
+                    }
+                    
+                    //repelTile(grabbedTile, randomRepelPoint);
                 }
             }
             else
@@ -136,6 +143,7 @@ public class Player : MonoBehaviour
                         if(HitTileRef.getTilePolarity() != playerPolarity)
                         {
                             grabbedTile = hitInfo.collider.gameObject;
+                            HitTileRef.setIsGrabbedByUser(true);
                         }
                     }
                 }
@@ -279,6 +287,8 @@ public class Player : MonoBehaviour
         float GrabbedObjLeft = boundGrabbedObj.min.x;
         float AttachObjRight = boundGrabbedObj.max.x;
     }
+
+    
 
 }
 
