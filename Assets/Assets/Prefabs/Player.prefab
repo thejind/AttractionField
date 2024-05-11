@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 6464890666175251404}
   - component: {fileID: 6951204492480245657}
   - component: {fileID: 4723560417607114226}
-  - component: {fileID: -3408818663493721446}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -169,6 +168,7 @@ MonoBehaviour:
     m_Bits: 64
   grabPoint: {fileID: 2858500561685584351}
   rayPoint: {fileID: 5457301862769068904}
+  polarityResetTimer: 0
 --- !u!60 &4723560417607114226
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -285,19 +285,6 @@ PolygonCollider2D:
       - {x: -0.65, y: -1.29}
       - {x: -0.55, y: -1.18}
   m_UseDelaunayMesh: 0
---- !u!114 &-3408818663493721446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580079853814391487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b40cb4dbcb4eaa1438981d0bfca3b0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followObject: {fileID: 0}
 --- !u!1 &5812462229967300937
 GameObject:
   m_ObjectHideFlags: 0
