@@ -82,9 +82,6 @@ public class Player : MonoBehaviour
         GrabTiles();
         
 
-        
-        
-
         if(Input.GetKeyDown(KeyCode.Q))
         {
             if(playerPolarity==EPolarity.Positive || playerPolarity==EPolarity.Neutral)

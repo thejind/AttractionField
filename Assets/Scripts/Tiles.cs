@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Tiles : MonoBehaviour
 {
@@ -7,9 +8,15 @@ public class Tiles : MonoBehaviour
     [SerializeField] bool isStatic;
     [SerializeField] Transform playerAttachmentPoint;
     [SerializeField] Transform tileAttachmentPoint;
+    
+    [SerializeField] Vector3 collisionOffset;
 
     BoxCollider2D tileCollider;
     Rigidbody2D rb;
+
+    [SerializeField] TileData data;
+
+
 
     public Tiles TileAvailable;
 
@@ -30,6 +37,7 @@ public class Tiles : MonoBehaviour
         isAttachedSomewhere = false;
         else
         isAttachedSomewhere = true;
+        collisionOffset = new Vector3(0.1f,0.1f,0);
     }
 
     public EPolarity getTilePolarity()
@@ -102,13 +110,22 @@ public class Tiles : MonoBehaviour
         {
             availableForAttachment = true;
             TileAvailable = otherTileRef;
-            Renderer renderer = other.gameObject.GetComponentInParent<Renderer>();
-            if (renderer != null)
-            {
-                Bounds bounds = renderer.bounds;
-                Vector3 positionOfAttach = new Vector3(bounds.min.x, bounds.center.y, 0f);
+            // Renderer renderer = other.gameObject.GetComponentInParent<Renderer>();
+            // if (renderer != null)
+            // {
+            //     Bounds bounds = renderer.bounds;
+            //     Vector3 positionOfAttach = new Vector3(bounds.min.x, bounds.center.y, 0f);
 
-            }
+                
+
+            // }
+
+            Transform child = TileAvailable.transform.Find("AnchorPoint");
+
+            while( transform != child )
+                {
+                    AttractTile(child,collisionOffset);
+                }
              
 
         }       
