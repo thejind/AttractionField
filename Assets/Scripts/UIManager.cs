@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI playerPolarityText;
     [SerializeField] RectTransform LevelCompleteScreen;
+    [SerializeField] GameObject PauseMenu;
 
 
 
@@ -21,11 +22,13 @@ public class UIManager : MonoBehaviour
         {
             gameManager.OnPolarityChanged += UpdatePlayerPolarityText;
             gameManager.OnLevelCompleted += LevelCompleted;
+            //gameManager.OnPausePressed += pausePressed;
         }
         else
         {
             Debug.LogError("GameManager is not assigned in OnEnable.");
         }
+        
     }
     private void UpdatePlayerPolarityText(EPolarity newPolarity)
     {
@@ -39,6 +42,7 @@ public class UIManager : MonoBehaviour
         {
             gameManager.OnPolarityChanged += UpdatePlayerPolarityText;
             gameManager.OnLevelCompleted += LevelCompleted;
+            //.OnPausePressed += pausePressed;
         }
         else
         {
@@ -46,7 +50,20 @@ public class UIManager : MonoBehaviour
         }
         
     }
-
+    public void pauseGame(bool setPaused)
+    {
+        if(setPaused)
+        {
+            Time.timeScale = 0;
+            PauseMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
+        }
+        
+    }
     // private void OnDisable() 
     // {
     //     if(gameManager == null)
@@ -60,6 +77,11 @@ public class UIManager : MonoBehaviour
     //     }
     // }
 
+    // void pausePressed()
+    // {
+    //     Pause.SetActive(true);
+    // }
+
     private void LevelCompleted()
     {
         LevelCompleteScreen.gameObject.SetActive(true);
@@ -70,6 +92,8 @@ public class UIManager : MonoBehaviour
     {
         LevelCompleteScreen.gameObject.SetActive(false);
     }
+
+    public 
 
     // Update is called once per frame
     void Update()

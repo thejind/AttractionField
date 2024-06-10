@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class GameManager : MonoBehaviour
 
     public delegate void LevelCompleteDelegate();
     
+    public delegate void PauseDelegate();
+
     public event PolarityChangedDelegate OnPolarityChanged;
 
     public event LevelCompleteDelegate OnLevelCompleted;
+
+    public event PauseDelegate OnPausePressed;
 
     EPolarity playerPolarity;
 
@@ -43,6 +48,11 @@ public class GameManager : MonoBehaviour
     public void setSceneIndex(int newSceneIndex)
     {
         sceneIndex = newSceneIndex;
+    }
+    
+    public void onPausePressed()
+    {
+        OnPausePressed?.Invoke();
     }
 
     public EPolarity getPLayerPolarity()
