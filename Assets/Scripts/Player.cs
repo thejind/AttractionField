@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] float maxExclusiveRepel;   //maximum exclusive repel distance
     [SerializeField] float searchRadius;
     [SerializeField] float polarityResetdelay;
+    public AnimationManagerPlayer animatorRef;
     Coroutine resetTimerCoroutine;
 
     [Header("player_animator")]
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gm = GameManager.instance;
+        animatorRef.AddComponent<AnimationManagerPlayer>();
     }
 
     void Start()
@@ -401,6 +403,8 @@ public class Player : MonoBehaviour
     void HandleMovement()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        animatorRef.setPlayerSpeed(horizontal);
+
 
         Flip();
 

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2235266750241763179}
   - component: {fileID: 1379030612328572337}
   - component: {fileID: 4917748651627662588}
+  - component: {fileID: 9005540826610223804}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -262,6 +263,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9005540826610223804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221384812238060058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1791c1acd5adb14b970b36fbb31112a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorRef: {fileID: 4917748651627662588}
+  positiveAnim: {fileID: 6437805182183518143}
+  negativeAnim: {fileID: 6978802677604804951}
+  animTime: 1.61
 --- !u!1 &7054983468919947541
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 0474494572bdf7b45aa19f0d4feca292, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 0474494572bdf7b45aa19f0d4feca292, type: 3}
       propertyPath: m_SortingOrder
@@ -513,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 85457e897aad7a148842cd0025134693, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 85457e897aad7a148842cd0025134693, type: 3}
       propertyPath: m_SortingOrder
